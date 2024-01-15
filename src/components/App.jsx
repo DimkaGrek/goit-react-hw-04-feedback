@@ -6,18 +6,12 @@ import Notification from './Notification/Notification';
 
 const App = () => {
   const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
-  // state = {
-  //   good: 0,
-  //   neutral: 0,
-  //   bad: 0,
-  // };
 
   const handleClick = option => {
-    console.log('handleClick =>>', option);
-    setFeedback(prev => prev[option] + 1);
-    // this.setState(prev => ({
-    //   [option]: prev[option] + 1,
-    // }));
+    setFeedback(prev => ({
+      ...prev,
+      [option]: prev[option] + 1,
+    }));
   };
 
   const countTotalFeedback = () => {
